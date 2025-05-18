@@ -7,7 +7,9 @@ class MyController extends Controller
 {
     public function index()
     {
-        $data = [  'name' => 'John Doe','email' =>'vothoai1503@gmail.com' ,'age' => 30];
+        $data = ['name' => 'John Doe',
+                 'email' =>'vothoai1503@gmail.com' ,
+                 'age' => 30];
         return response()->json($data);
     }
 
