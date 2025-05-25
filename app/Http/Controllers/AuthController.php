@@ -14,14 +14,15 @@ class AuthController extends Controller
     //
     public function login(LoginRequest $request)
     {
+      //  $users = $request->user();
        $data = $request->validated();
        if(!Auth::attempt($data)){
            return response()->json(['message'=>'email or password is incorrect']);
        }
        $users = Auth::user();
-     //    $token = $users->createToken('main')->plainTextToken;
+     $token = $users->createToken('main')->plainTextToken;
 
-            return response()->json(['users'=>$users]);
+            return response()->json(['users'=>$users,'token'=>$token]);
     }
 
     public function register(RegisterRequest $request)
